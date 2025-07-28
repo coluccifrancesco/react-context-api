@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import ProductsCard from '../components/ProductsCard';
 
 import { useContext } from 'react'
@@ -21,7 +20,7 @@ export default function Products(){
 
     // useEffect(fetchArticles, []);
 
-    const articles = useContext([ ListContext ]);
+    const {articlesList: articles} = useContext(ListContext);
 
     return(
         <main className='bg-primary-subtle'>
@@ -33,7 +32,7 @@ export default function Products(){
                         {articles.map((item) => (
 
                             <li key={item.id} className="col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">            
-                                <ProductsCard />
+                                <ProductsCard value={item} />
                             </li>
                                 
                         ))}

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
-import ListContext from '../Context/ListContext'
+// import ListContext from '../Context/ListContext'
 
 import './App.css'
 import Home from './pages/Home'
@@ -8,25 +8,14 @@ import AboutUs from './pages/AboutUs'
 import Products from './pages/Products'
 import ProductsDetail from './pages/ProductsDetail'
 import DefaultLayout from './layout/DefaultLayout'
+import { ListProvider } from '../Context/ListContext'
 
 function App() {
-  
-  const [articlesList, setArticlesList] = useState([]);
-      
-  function fetchArticles(){
-  console.log('🏗️ Products component rendering...');
-  fetch('https://fakestoreapi.com/products')
-  .then(res => res.json())
-  .then(data => {
-      console.log('Total articles: ' + data.length);
-      setArticlesList(data)
-    })
-  };
-  
-  useEffect(fetchArticles, []);
+
+  // const articlesList = useContext([])
 
   return (
-    <ListContext.Provider value={{articles:{articlesList}}}>
+    <ListProvider>
       
       <BrowserRouter>
         
@@ -42,7 +31,7 @@ function App() {
       
       </BrowserRouter>
     
-    </ListContext.Provider>
+    </ListProvider>
   )
 }
 
