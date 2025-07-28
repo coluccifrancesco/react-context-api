@@ -20,7 +20,9 @@ export default function Products(){
     return(
         <main className='bg-primary-subtle'>
             <div className="container my-4 py-5">
-                <ul className="row list-unstyled">
+
+                {articles ? (
+                    <ul className="row list-unstyled">
                     
                     {articles.map((item) => (
 
@@ -49,9 +51,12 @@ export default function Products(){
                                 </div>
                             </div>
                         </li>
+                    
                     ))}
                 
-                </ul>
+                    </ul> ) : (<p>Loading...</p>)
+                }
+   
             </div>
         </main>
     )

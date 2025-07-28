@@ -9,7 +9,7 @@ export default function ProductsDetail(){
     let articleInfo = articles.find(article => article.id === articleId);
     
     function fetchArticles(){
-        console.log('🏗️ Products component rendering...');
+        console.log('🏗️ Product component rendering...');
         fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
         .then(data => {
@@ -68,7 +68,7 @@ export default function ProductsDetail(){
             )}
 
             <div 
-            className={articleId > 1 && articleId < articles.length ? 'd-flex mx-auto justify-content-between align-items-center my-5' : 'd-flex mx-auto justify-content-center align-items-center MY-5'}>
+            className={articleId > 1 && articleId < articles.length ? 'd-flex mx-auto justify-content-between align-items-center my-5' : 'd-flex mx-auto justify-content-center align-items-center my-5'}>
                 
                 <Link 
                 to={`/products/${articleId - 1}`} 
